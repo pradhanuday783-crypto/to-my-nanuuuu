@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To, Mero Budii ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #e91e63;
+}
+
+p {
+    font-size: 17px;
+    color: #444;
+    line-height: 1.6;
+}
+
+button {
+    padding: 12px 22px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background: #e91e63;
+    color: white;
+}
+
+#noBtn {
+    background: #555;
+    color: white;
+    position: absolute;
+}
+
+img {
+    width: 120px;
+    margin: 10px 0;
+}
+
+/* floating hearts */
+.heart {
+    position: fixed;
+    font-size: 22px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+<div class="card">
+<h1>To, Mero Budii ❤️</h1>
+<img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+<p>
+From your bewakuf aadmi… <br>
+From your nanuu 🥺 <br><br>
+I know I hurt you. I didn’t think properly.  
+And the last thing I ever want is to be the reason you feel sad.
+</p>
+<button id="yesBtn">Forgive Me? 💕</button>
+<button id="noBtn">No 😤</button>
+</div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+<div class="card">
+<h1>Thank You For Clicking ❤️</h1>
+<img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+<p>
+Even when I act stupid…  
+Even when I deserve scolding…  
+You still listen.  
+You still care.  
+And that means more to me than I show.
+</p>
+<button onclick="nextPage(3)">Continue ➜</button>
+</div>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+<div class="card">
+<h1>You Matter So Much</h1>
+<img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+<p>
+You are my comfort.  
+My safe place.  
+My happiness after a long day.  
+My favorite notification.  
+And I never want to take you for granted.
+</p>
+<button onclick="nextPage(4)">One More Thing ➜</button>
+</div>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="page">
+<div class="card">
+<h1>I Promise ❤️</h1>
+<img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif">
+<p>
+I promise to listen better.  
+I promise to understand more.  
+I promise to control my ego.  
+I promise to protect your feelings.  
+Not because I have to…  
+But because you are important to me.
+</p>
+<button onclick="nextPage(5)">Final Message ➜</button>
+</div>
+</div>
+
+<!-- PAGE 5 FINAL -->
+<div id="page5" class="page">
+<div class="card">
+<h1>My Heart To Yours ❤️</h1>
+<p>
+Mero budii…  
+You are not just someone in my life.  
+You are the person I want beside me when things are good and when things are difficult.  
+
+I am your bewakuf aadmi.  
+I am your nanuu.  
+And I am yours with full heart.  
+
+I love you deeply.  
+I love you honestly.  
+And I will keep choosing you — every single day.
+</p>
+<button onclick="startHearts()">Forever With You ❤️</button>
+</div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+yesBtn.addEventListener("click", function() {
+    nextPage(2);
+});
+
+function nextPage(num) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById("page" + num).classList.add("active");
+}
+
+function startHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerText = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
